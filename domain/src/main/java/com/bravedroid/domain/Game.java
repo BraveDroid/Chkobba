@@ -1,24 +1,29 @@
 package com.bravedroid.domain;
 
+import com.bravedroid.util.Logger;
+
+import java.io.IOException;
 import java.util.Random;
 
 public class Game {
     private static Game instance;
+    private Logger logger;
+
     private HumanPlayer humanPlayer;
     private BotPlayer botPlayer;
-
     private Player firstPlayer;
     private Player secondPlayer;
 
-    public static Game getInstance(HumanUI humanUI) {
-        if (instance == null) {
-            instance = new Game(humanUI);
-        }
-        return instance;
+    private Game(Logger logger, HumanUI humanUI) {
+        this.logger = logger;
+        init(humanUI);
     }
 
-    private Game(HumanUI humanUI) {
-        init(humanUI);
+    public static Game getInstance(Logger logger, HumanUI humanUI) {
+        if (instance == null) {
+            instance = new Game(logger, humanUI);
+        }
+        return instance;
     }
 
     private void init(HumanUI humanUI) {
@@ -42,18 +47,21 @@ public class Game {
         if (randomInt % 2 == 0) {
             firstPlayer = humanPlayer;
             secondPlayer = botPlayer;
+            logger.log("first player is human ");
         } else {
             firstPlayer = botPlayer;
             secondPlayer = humanPlayer;
+            logger.log("first player is bot ");
+
         }
     }
 
-    public void start() {
+    public void start() throws IOException {
         Cards.getInstance().shuffle();
         askFirstPlayerToAcceptFirstCard();
     }
 
-    private void askFirstPlayerToAcceptFirstCard() {
+    private void askFirstPlayerToAcceptFirstCard() throws IOException {
         boolean isFirstCardAccepted = firstPlayer.acceptFirstCard(Cards.getFirstCard());
     }
 }
