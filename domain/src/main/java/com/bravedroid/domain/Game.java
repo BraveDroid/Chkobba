@@ -38,8 +38,8 @@ public class Game {
 
     private void selectFirstPlayer() {
         Random rand = new Random();
-        int randomInt = rand.nextInt(1);
-        if (randomInt == 1) {
+        int randomInt = rand.nextInt(10);
+        if (randomInt % 2 == 0) {
             firstPlayer = humanPlayer;
             secondPlayer = botPlayer;
         } else {
