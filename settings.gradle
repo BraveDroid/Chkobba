@@ -1,2 +1,3 @@
-include ':cross-cutting-concern', ':domain',':presentation',':main'
+include ':cross-cutting-concern', ':domain', ':presentation', ':main'
+include 'application'
 

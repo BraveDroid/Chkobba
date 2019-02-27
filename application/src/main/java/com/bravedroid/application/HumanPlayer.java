@@ -1,6 +1,6 @@
-package com.bravedroid.domain;
+package com.bravedroid.application;
 
-import java.io.IOException;
+import com.bravedroid.domain.Card;
 
 public class HumanPlayer implements Player {
     private HumanUI humanUI;
@@ -10,7 +10,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public boolean acceptFirstCard(Card firstCard) throws IOException {
+    public boolean acceptFirstCard(Card firstCard) {
         return humanUI.acceptFirstCard(firstCard);
     }
 }

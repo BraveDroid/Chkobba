@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'com.bravedroid.chkobba'
+version 'v1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':cross-cutting-concern')
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

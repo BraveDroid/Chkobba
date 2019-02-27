@@ -8,9 +8,9 @@ import java.io.InputStreamReader;
 
 public class ReaderCmd {
 
-  public String readInput(String msgToPrompt) throws IOException {
-    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    Printer.print(msgToPrompt);
-    return input.readLine();
-  }
+    public String readInput(String msgToPrompt) throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        Printer.print(msgToPrompt);
+        return input.readLine();
+    }
 }
