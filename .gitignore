@@ -1,5 +1,6 @@
 **/.idea/workspace.xml
 **/out/
+**/build/
 **/.idea/
 **/*.iml
 **/.gradle
