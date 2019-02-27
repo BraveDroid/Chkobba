@@ -1,5 +1,6 @@
-package com.bravedroid.domain;
+package com.bravedroid.application;
 
+import com.bravedroid.domain.Cards;
 import com.bravedroid.util.Logger;
 
 import java.util.Random;

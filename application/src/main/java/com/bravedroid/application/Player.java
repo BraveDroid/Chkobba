@@ -1,4 +1,6 @@
-package com.bravedroid.domain;
+package com.bravedroid.application;
+
+import com.bravedroid.domain.Card;
 
 public interface Player {
 
