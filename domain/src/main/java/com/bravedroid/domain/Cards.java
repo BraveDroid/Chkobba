@@ -71,8 +71,58 @@ public class Cards {
         Collections.shuffle(cardList);
     }
 
-    public static Card getFirstCard() {
-        return cardList.get(1);
+    @VisibleForTest
+    public void reset() {
+        cardList.clear();
+        cardList.addAll(Arrays.asList(
+                Card.Factory.create(PIQUE, 1),
+                Card.Factory.create(PIQUE, 2),
+                Card.Factory.create(PIQUE, 3),
+                Card.Factory.create(PIQUE, 4),
+                Card.Factory.create(PIQUE, 5),
+                Card.Factory.create(PIQUE, 6),
+                Card.Factory.create(PIQUE, 7),
+                Card.Factory.create(PIQUE, 8),
+                Card.Factory.create(PIQUE, 9),
+                Card.Factory.create(PIQUE, 10),
+
+                Card.Factory.create(COEUR, 1),
+                Card.Factory.create(COEUR, 2),
+                Card.Factory.create(COEUR, 3),
+                Card.Factory.create(COEUR, 4),
+                Card.Factory.create(COEUR, 5),
+                Card.Factory.create(COEUR, 6),
+                Card.Factory.create(COEUR, 7),
+                Card.Factory.create(COEUR, 8),
+                Card.Factory.create(COEUR, 9),
+                Card.Factory.create(COEUR, 10),
+
+                Card.Factory.create(CARREAU, 1),
+                Card.Factory.create(CARREAU, 2),
+                Card.Factory.create(CARREAU, 3),
+                Card.Factory.create(CARREAU, 4),
+                Card.Factory.create(CARREAU, 5),
+                Card.Factory.create(CARREAU, 6),
+                Card.Factory.create(CARREAU, 7),
+                Card.Factory.create(CARREAU, 8),
+                Card.Factory.create(CARREAU, 9),
+                Card.Factory.create(CARREAU, 10),
+
+                Card.Factory.create(TREFLE, 1),
+                Card.Factory.create(TREFLE, 2),
+                Card.Factory.create(TREFLE, 3),
+                Card.Factory.create(TREFLE, 4),
+                Card.Factory.create(TREFLE, 5),
+                Card.Factory.create(TREFLE, 6),
+                Card.Factory.create(TREFLE, 7),
+                Card.Factory.create(TREFLE, 8),
+                Card.Factory.create(TREFLE, 9),
+                Card.Factory.create(TREFLE, 10)
+        ));
+    }
+
+    public Card getFirstCard() {
+        return cardList.get(0);
     }
 
     @Override
@@ -89,4 +139,14 @@ public class Cards {
         }
         return sb.toString();
     }
+
+    public List<Card> getCardsRange(int startIndex, int count) {
+        List<Card> result = new ArrayList<>();
+        for (int i = startIndex; i < startIndex + count; i++) {
+            result.add(cardList.get(i));
+        }
+        return result;
+    }
+
+
 }

@@ -1,8 +1,8 @@
 package com.bravedroid.presentation;
 
-import com.bravedroid.domain.Card;
 import com.bravedroid.application.Game;
 import com.bravedroid.application.HumanUI;
+import com.bravedroid.domain.Card;
 import com.bravedroid.util.Logger;
 
 import java.io.IOException;

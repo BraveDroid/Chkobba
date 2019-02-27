@@ -9,7 +9,11 @@ public class Logger {
 
     public void log(Object msg) {
         if (isDebug) {
-            System.out.println("*******" + msg + "*******");
+            String className = Thread.currentThread().getStackTrace()[2].getClassName();
+            className = className.substring(className.lastIndexOf(".") + 1);
+            final int lineNumber = Thread.currentThread().getStackTrace()[2].getLineNumber();
+            System.out.println("***" + className + "_" + lineNumber + "***" + "\n"
+                    + msg + "***");
         }
     }
 }
