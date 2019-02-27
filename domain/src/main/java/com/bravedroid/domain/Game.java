@@ -2,7 +2,6 @@ package com.bravedroid.domain;
 
 import com.bravedroid.util.Logger;
 
-import java.io.IOException;
 import java.util.Random;
 
 public class Game {
@@ -56,12 +55,12 @@ public class Game {
         }
     }
 
-    public void start() throws IOException {
+    public void start() {
         Cards.getInstance().shuffle();
         askFirstPlayerToAcceptFirstCard();
     }
 
-    private void askFirstPlayerToAcceptFirstCard() throws IOException {
+    private void askFirstPlayerToAcceptFirstCard() {
         boolean isFirstCardAccepted = firstPlayer.acceptFirstCard(Cards.getFirstCard());
     }
 }

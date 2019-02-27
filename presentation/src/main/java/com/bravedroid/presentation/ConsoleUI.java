@@ -14,14 +14,19 @@ public class ConsoleUI implements HumanUI {
         this.logger = logger;
     }
 
-    public void showGame() throws IOException {
-        Game.getInstance(logger,this).start();
+    public void showGame() {
+        Game.getInstance(logger, this).start();
     }
 
     @Override
-    public boolean acceptFirstCard(Card firstCard) throws IOException {
+    public boolean acceptFirstCard(Card firstCard) {
         ReaderCmd readerCmd = new ReaderCmd();
-        final String input = readerCmd.readInput("would you accept this card : " + firstCard.toString() + " ?");
+        String input;
+        try {
+            input = readerCmd.readInput("would you accept this card : " + firstCard.toString() + " ?");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         if (input.equals("yes")) {
             return true;
         }
