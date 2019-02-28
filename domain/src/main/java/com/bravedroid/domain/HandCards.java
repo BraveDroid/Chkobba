@@ -8,4 +8,8 @@ public class HandCards {
     public HandCards(List<Card> handCardList) {
         this.handCardList = handCardList;
     }
+
+    public List<Card> getHandCardList() {
+        return handCardList;
+    }
 }

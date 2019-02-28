@@ -2,7 +2,10 @@ package com.bravedroid.presentation;
 
 import com.bravedroid.application.Game;
 import com.bravedroid.application.HumanUI;
+import com.bravedroid.application.players.PlayAction;
 import com.bravedroid.domain.Card;
+import com.bravedroid.domain.HandCards;
+import com.bravedroid.domain.TableCards;
 import com.bravedroid.util.Logger;
 
 import java.io.IOException;
@@ -35,5 +38,10 @@ public class ConsoleUI implements HumanUI {
         } else {
             throw new IllegalArgumentException("Invalid input!");
         }
+    }
+
+    @Override
+    public PlayAction play(TableCards tableCards, HandCards handCards) {
+        return null;
     }
 }

@@ -1,9 +1,9 @@
 package com.bravedroid.application.players;
 
+import com.bravedroid.application.Game;
 import com.bravedroid.application.HumanUI;
 import com.bravedroid.domain.Card;
 import com.bravedroid.domain.TableCards;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class HumanPlayer extends Player {
     private HumanUI humanUI;
@@ -19,6 +19,14 @@ public class HumanPlayer extends Player {
 
     @Override
     public PlayAction play(TableCards tableCards) {
-        throw new NotImplementedException();
+        PlayAction playAction = humanUI.play(tableCards, getHandCards());
+        while (!isValid(playAction)) {
+            playAction = humanUI.play(tableCards, getHandCards());
+        }
+        return playAction;
+    }
+
+    private boolean isValid(PlayAction playAction) {
+        return Game.getInstance(null, null).isValidate(playAction);
     }
 }

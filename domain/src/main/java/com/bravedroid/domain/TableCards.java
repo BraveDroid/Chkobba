@@ -7,10 +7,18 @@ public class TableCards {
     private List<Card> cardList;
 
     public TableCards() {
-        this.cardList = new ArrayList<>();
+        cardList = new ArrayList<>();
+    }
+
+    public List<Card> getCardList() {
+        return cardList;
     }
 
     public void takeCards(List<Card> tableCardList) {
-        this.cardList.addAll(tableCardList);
+        cardList.addAll(tableCardList);
+    }
+
+    public boolean isEmpty() {
+        return cardList.isEmpty();
     }
 }

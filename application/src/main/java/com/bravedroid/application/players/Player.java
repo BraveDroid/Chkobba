@@ -18,5 +18,4 @@ public abstract class Player {
     }
 
     public abstract PlayAction play(TableCards tableCards);
-
 }
