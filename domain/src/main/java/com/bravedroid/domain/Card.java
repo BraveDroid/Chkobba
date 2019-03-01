@@ -1,5 +1,7 @@
 package com.bravedroid.domain;
 
+import java.util.Objects;
+
 public class Card {
     private CardType type;
     private int value;
@@ -11,6 +13,20 @@ public class Card {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Card otherCard = (Card) other;
+        return value == otherCard.value &&
+                type == otherCard.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, value);
     }
 
     @Override
